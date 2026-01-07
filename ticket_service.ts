@@ -31,7 +31,7 @@ function loadLLMTickets(): Ticket[] {
 
 // Get current data source mode from .env
 export function getCurrentDataSource(): 'normal' | 'llm' | 'combined' {
-    return (process.env.USE_DB as 'normal' | 'llm' | 'combined') || 'combined';
+    return (process.env.NEXT_PUBLIC_DATA_SOURCE as 'normal' | 'llm' | 'combined') || 'combined';
 }
 
 // Load tickets based on .env configuration
@@ -40,7 +40,7 @@ function loadTickets(): Ticket[] {
     const hasLLMTickets = llmTickets.length > 0;
     
     // Get data source mode from .env
-    const dataSourceMode = process.env.USE_DB || 'combined';
+    const dataSourceMode = process.env.NEXT_PUBLIC_DATA_SOURCE || 'combined';
     
     switch (dataSourceMode) {
         case 'normal':
